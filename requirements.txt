@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-chroma
+langchain-aws
+langchain-ollama
+pypdf
+chromadb
+nltk
+rouge-score
+bert-score
+sentence-transformers
