@@ -1,6 +1,6 @@
 # 🌾 Agricultural Advisory Chatbot using Retrieval-Augmented Generation (RAG)
 
-This project implements a **Retrieval-Augmented Generation (RAG)** pipeline designed to provide real-time, context-rich answers to agricultural queries. It leverages dense retrieval with ChromaDB and generative responses using LLMs (via Ollama) to deliver knowledge-grounded recommendations based on *Package of Practices* (PoP) documents for crops like Maize, Sorghum, Ragi, French Bean, and Green Gram.
+This project implements a **Retrieval-Augmented Generation (RAG)** pipeline designed to provide real-time, context-rich answers to agricultural queries. It leverages dense retrieval with ChromaDB and generative responses using LLMs (via Ollama) to deliver knowledge-grounded recommendations based on *Package of Practices* (PoP) documents for crops like Maize, Sweet Potato, Ragi, Cotton, and Groundnut.
 
 ---
 
@@ -123,12 +123,12 @@ model = OllamaLLM(model="mistral")  # or "llama2", "phi3"
 
 **Query**:  
 ```
-how many irrigations does sorghum need?
+how many irrigations does cotton need?
 ```
 
 **Generated Answer**:  
 ```
-Sorghum needs 1-2 irrigations during the rainy season and 5-6 irrigations in summer. Therefore, a total of 6-8 irrigations may be required.
+For irrigated cotton crops, irrigate the plants once every two weeks, with copious irrigation during flowering being essential to ensure good pod setting and high fiber quality.
 ```
 
 **Evaluation Metrics**:
