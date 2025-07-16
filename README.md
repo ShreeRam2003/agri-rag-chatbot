@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8475.svg)](https://doi.org/10.5281/zenodo.8475)
+
 # 🌾 Agricultural Advisory Chatbot using Retrieval-Augmented Generation (RAG)
 
 This project implements a **Retrieval-Augmented Generation (RAG)** pipeline designed to provide real-time, context-rich answers to agricultural queries. It leverages dense retrieval with ChromaDB and generative responses using LLMs (via Ollama) to deliver knowledge-grounded recommendations based on *Package of Practices* (PoP) documents for crops like Maize, Sweet Potato, Ragi, Cotton, and Groundnut.
