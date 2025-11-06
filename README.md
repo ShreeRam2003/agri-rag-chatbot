@@ -80,7 +80,7 @@ python query_data.py "What are the main planting seasons for maize?"
 
 You will receive:
 - ✅ A generated response
-- 📚 Top-5 retrieved chunks
+- 📚 Top-3 retrieved chunks
 - 📈 Evaluation metrics against a ground truth dataset
 
 ---
