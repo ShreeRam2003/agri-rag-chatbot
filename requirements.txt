@@ -1,11 +1,10 @@
-langchain
-langchain-community
+argparse
+numpy
 langchain-chroma
-langchain-aws
 langchain-ollama
-pypdf
-chromadb
+langchain
 nltk
 rouge-score
 bert-score
 sentence-transformers
+tenacity

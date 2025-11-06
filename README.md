@@ -8,7 +8,7 @@ This project implements a **Retrieval-Augmented Generation (RAG)** pipeline desi
 
 ## 📘 Abstract
 
-This study introduces a RAG-based system combining FAISS-powered vector search and transformer-based LLMs for agricultural question answering. Preprocessed PoP documents are semantically chunked and embedded using Amazon Titan (`BedrockEmbeddings`) and indexed in ChromaDB. On receiving a query, relevant chunks are retrieved and passed into a prompt that is answered using an LLM (e.g., Mistral, LLaMA2, Phi3). This supports use cases like:
+This study introduces a RAG-based system combining vector search and transformer-based LLMs for agricultural question answering. Preprocessed PoP documents are semantically chunked and embedded using Amazon Titan (`BedrockEmbeddings`) and indexed in ChromaDB. On receiving a query, relevant chunks are retrieved and passed into a prompt that is answered using an LLM (e.g., Mistral, LLaMA3.1, Phi3). This supports use cases like:
 
 - Crop management recommendations  
 - Fertilizer and irrigation schedules  
@@ -91,14 +91,16 @@ The following are computed for each query (if ground truth is available):
 
 ### 🔍 Retrieval Evaluation:
 - **Precision@K**  
-- **Recall@K**  
+- **Coverage@K**  
 - **Mean Reciprocal Rank (MRR)**  
 - **Normalized Discounted Cumulative Gain (NDCG)**
 
 ### 🧠 Generation Evaluation:
 - **BLEU Score**  
-- **ROUGE-1** and **ROUGE-L**  
-- **BERTScore (F1)**  
+- **ROUGE-1**, **ROUGE-2** and **ROUGE-L**  
+- **BERTScore (P)**, **BERTScore (R)** and **BERTScore (F1)**
+- **Attribution Score**
+- **Semantic Similarity**
 
 Results are logged to `metrics_log.csv`.
 
@@ -107,16 +109,16 @@ Results are logged to `metrics_log.csv`.
 ## 🧠 Models Used
 
 - **Embedding Model**: `amazon.titan-embed-text-v2:0` via AWS Bedrock  
-- **LLMs Supported** via [Ollama](https://ollama.com):
+- **LLMs** via [Ollama](https://ollama.com):
   - Mistral
-  - LLaMA2
-  - Nous-Hermes
+  - LLaMA3.1
+  - Qwen2.5
   - Phi3
 
 You can configure the model in `query_data.py`:
 
 ```python
-model = OllamaLLM(model="mistral")  # or "llama2", "phi3"
+model = OllamaLLM(model="mistral")  # or "llama3.1", "phi3"
 ```
 
 ---
@@ -135,13 +137,19 @@ For irrigated cotton crops, irrigate the plants once every two weeks, with copio
 
 **Evaluation Metrics**:
 ```
+BLEU: 0.87
+ROUGE-1: 0.4000
+ROUGE-2: 0.2353
+ROUGE-L: 0.3143
+BERTScore P: 0.8413
+BERTScore R: 0.9164
+BERTScore F1: 0.8772
+Semantic Similarity: 0.9100
 Precision@K: 1.00
-Recall@K: 5
+Coverage@K: 3
 MRR: 1.00
 NDCG: 1.00
-BLEU: 0.87
-ROUGE-1: 0.88
-BERTScore F1: 0.91
+Attribution Score: 0.3333
 ```
 
 ---
